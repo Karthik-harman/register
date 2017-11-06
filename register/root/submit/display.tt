@@ -1,0 +1,114 @@
+<html>
+    <head><title>Display Page</title></head>
+    <body>
+        [% INCLUDE heading %]
+        <table style = "width: 75%; margin-top: 35px; margin-bottom: 35px; box-shadow: 1px 2px; background-color: oldlace; padding: 20px;" align="center">
+            <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder; text-decoration: underline;">Saved details </label>
+                </td>
+                 <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;"></label>
+                </td>
+            </tr>
+            <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">FIRST NAME</label>
+                </td>
+                 <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.firstname != "" %]
+                        <label type="text" name="firstname" style="width: 150px;">[% params.firstname %]</label>
+                    [% ELSE %]
+                        <label type="text" name="lastname" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+            <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">LAST NAME </label>
+                </td>
+                 <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.lastname != "" %]
+                        <label type="text" name="lastname" style="width: 150px;">[% params.lastname %]</label>
+                    [% ELSE %]
+                        <label type="text" name="lastname" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+             <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">E-MAIL ID</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.email != "" %]
+                        <label type="text" name="email" style="width: 150px;">[% params.email %]</label>
+                    [% ELSE %]
+                        <label type="text" name="email" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+            <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">PHONE NUMBER</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.phone != "" %]
+                        <label type="text" name="phno" style="width: 150px;">[% params.phone %]</label>
+                    [% ELSE %]
+                        <label type="text" name="phno" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+            <tr style = "height: 60px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">SEX</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.gender != "false" %]
+                        <label type="text" name="gender" style="width: 150px;">[% params.gender %]</label>
+                    [% ELSE %]
+                        <label type="text" name="gender" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+            <tr style = "height: 60px;">
+                <td style = "width: 25px;">
+                    <label style="font-size: 18px; font-weight: bolder;">Date of Birth (mm / dd / yyy)</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 18px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    [% IF params.month != "" || params.day != "" || params.year != ""%]
+                        <label type="text" name="month" style="width: 150px;">[% params.month %] / </label>
+                        <label type="text" name="day" style="width: 150px;">[% params.day %] / </label>
+                        <label type="text" name="year" style="width: 150px;">[% params.year %]</label>
+                    [% ELSE %]
+                        <label type="text" name="gender" style="width: 150px;color: red">Not available</label>
+                    [% END %]
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+[% BLOCK heading %]
+            <div style = "height: 130px; width: 100%; background-color: #ffffff; font-size: 45px; box-shadow: 1px 2px 2px 2px #5c726a; padding: 1px; font-weight: bolder; color: #5c726a;" align="center">
+            <div style="width:50%;margin-top: 15px;"> Result Page </div>
+            <div style="width: 85%; position: absolute;" align="right"><form action="/regis/search"><input type="submit" name="submit" value="Show Register Details" style="width: 200px;height: 45px; cursor: pointer; background-color: #f0b5b5;border-radiues; font-size: 16px; color: slateblue; font-weight: bolder;border-radius: 15px;"></input></form></div>
+        </div>
+[% END %]

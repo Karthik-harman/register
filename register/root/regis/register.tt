@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Template</title>
+    </head>
+    <body>
+        [% INCLUDE heading %]
+        <form action = "/regis/subn">
+        <table style = "width: 80%; padding: 15px; margin-top: 35px; box-shadow: 1px 2px; margin-bottom: 35px; background-color: aliceblue;" align="center">
+            <tr style = "height: 100px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">USERNAME</label>
+                </td>
+                 <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    <input type="text" name="firstname" Placeholder="FIRST NAME" style="width: 150px;"></input>
+                    <input type="text" name="lastname" Placeholder="LAST NAME" style="width: 150px;"></input>
+                </td>
+            </tr>
+            <tr style = "height: 100px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">E-Mail ID </label>
+                </td>
+                 <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    <input type="text" name="email" Placeholder="Email ID" pattern="[A-Za-z0-9]+?@[\w]+?\.[\w]+?$" style="width: 300px;"></input>
+                </td>
+            </tr>
+            <tr style = "height: 100px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">Phone Number</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    <input type="text" name="phone" Placeholder="Phone Number"  pattern="[[0-9]{10}$|[0-9]{3,4}\-[0-9]{6,7}$]" title="Enter valid Phone number" style="width: 300px;"></input>
+                </td>
+            </tr>
+            <tr style = "height: 100px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">Gender</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    <select name="gender">
+                        <option value="false">Select a Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </td>
+            </tr>
+             <tr style = "height: 100px;">
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">Date of Birth</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 22px; font-weight: bolder;">:</label>
+                </td>
+                <td style = "width: 20px;">
+                    <label style="font-size: 15px; font-weight: bold;">Month</label>&nbsp
+                    <input type="text" name="month" Placeholder="Month" pattern="^(0[1-9]|1[012]$)" style="width: 50px;"></input>
+                    <label style="font-size: 15px; font-weight: bold;">Day</label>&nbsp
+                    <input type="text" name="day" Placeholder="Day" pattern="^(0[1-9]|[12][0-9]|[3][01]$)" style="width: 50px;"></input>
+                    <label style="font-size: 15px; font-weight: bold;">year</label>&nbsp
+                    <input type="text" name="year" Placeholder="year" pattern="(\d+){4}" style="width: 50px;"></input>
+                </td>
+            </tr>         
+        </table>
+        <div style = "height: 100px; width: 100%;" align="center">
+            <input type="submit" name="submit" value="Click to register" style="width: 300px;height: 50px; cursor: pointer; background-color: #b2cacb; font-size: 20px; color: slateblue; font-weight: bolder;"></input>
+        </div>
+    </body>
+</html>
+[% BLOCK heading %]
+        <div style = "height: 130px; width: 100%; background-color: #ffffff; font-size: 45px; box-shadow: 1px 2px 2px 2px #5c726a; padding: 1px; font-weight: bolder; color: #5c726a;" align="center">
+            <div style="width:50%;margin-top: 15px;"> Registration Page </div>
+            <div style="width: 85%; position: absolute;" align="right"><form action="/regis/search"><input type="submit" name="submit" value="Show Register Details" style="width: 200px;height: 45px; cursor: pointer; background-color: #f0b5b5;border-radiues; font-size: 16px; color: slateblue; font-weight: bolder;border-radius: 15px;"></input></form></div>
+        </div>
+[% END %]
