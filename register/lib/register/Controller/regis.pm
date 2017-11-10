@@ -40,7 +40,7 @@ sub subn :Local
     my ( $self, $c ) = @_;
     my $register_params = $c->request->params;
     my $model = $self->register_model; 
-    #print STDERR Dumper $register_params;
+    print STDERR Dumper $c;
     my %params = (
         firstname => "$register_params->{firstname}",
         lastname => "$register_params->{lastname}",
@@ -61,14 +61,23 @@ sub search :Local
     my ( $self, $c ) = @_;
     my $schema = register::Schema->connect('dbi:ODBC:phab_karthik', 'phab', 'phab');
     my $get_records = $schema->resultset('KarthiRegister')->search;
-    #my @get_records = $schema->resultset('KarthiRegister')->search;
     my $get_count = $schema->resultset('KarthiRegister')->search({})->count;
     $c->stash->{RecordRef} = $get_records;
     $c->stash->{RecordCount} = $get_count;
-    #print STDERR Dumper $get_records[0]->{_column_data}->{'firstname'};
     $c->stash->{template} =  'submit/result.tt';
 }
 
+sub SearchSingle :Local
+{
+    my ( $self, $c ) = @_;
+    my $phone = $c->request->param('search');
+    my $record_ref = $self->register_model->searchwithmail($phone);
+    #my $record_ref_count = $record_ref->count;
+    $c->stash->{RecordRef} = $record_ref;
+    #$c->stash->{RecordCount} = $record_ref_count;
+    $c->stash->{template} =  'submit/result.tt';
+}
+#&SearchSingle();
 =encoding utf8
 
 =head1 AUTHOR

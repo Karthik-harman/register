@@ -5,8 +5,8 @@
     </head>
     <body>
         [% INCLUDE heading %]
-        <form action = "/regis/subn">
-        <table style = "width: 80%; padding: 15px; margin-top: 35px; box-shadow: 1px 2px; margin-bottom: 35px; background-color: aliceblue;" align="center">
+        <form action = "/regis/subn" style="width: 65%; height: 100%; margin-left: 12px;position: absolute" align="left">
+        <table style = "width: 100%; padding: 15px; margin-top: 35px; box-shadow: 1px 2px; margin-bottom: 35px; background-color: aliceblue;" align="center">
             <tr style = "height: 100px;">
                 <td style = "width: 20px;">
                     <label style="font-size: 22px; font-weight: bolder;">USERNAME</label>
@@ -76,11 +76,23 @@
         <div style = "height: 100px; width: 100%;" align="center">
             <input type="submit" name="submit" value="Click to register" style="width: 300px;height: 50px; cursor: pointer; background-color: #b2cacb; font-size: 20px; color: slateblue; font-weight: bolder;"></input>
         </div>
+        </form> 
+       <table align="right" style="margin-top:50px;">
+        <tr>
+            <td>
+               <form action="/regis/search"><input type="submit" name="submit" value="Display Registered Details" style="width: 225px;height: 45px; cursor: pointer; background-color: #f0b5b5;border-radiues; font-size: 16px; color: slateblue; font-weight: bolder;margin-bottom: 50px;"></input></form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/regis/SearchSingle"><input type="text" name="search" placeholder="Search with Phone Number" style = "width: 160px;height: 40px;margin-right: 15px;"></input><input type="submit" value="Hit" style="width: 55px;height: 35px;cursor: pointer; background-color: #f0b5b5;border-radiues; font-size: 16px; color: slateblue; font-weight: bolder;"></input></form>
+            </td>
+        </tr>
+       </table> 
     </body>
 </html>
 [% BLOCK heading %]
         <div style = "height: 130px; width: 100%; background-color: #ffffff; font-size: 45px; box-shadow: 1px 2px 2px 2px #5c726a; padding: 1px; font-weight: bolder; color: #5c726a;" align="center">
-            <div style="width:50%;margin-top: 15px;"> Registration Page </div>
-            <div style="width: 85%; position: absolute;" align="right"><form action="/regis/search"><input type="submit" name="submit" value="Show Register Details" style="width: 200px;height: 45px; cursor: pointer; background-color: #f0b5b5;border-radiues; font-size: 16px; color: slateblue; font-weight: bolder;border-radius: 15px;"></input></form></div>
+            <div style="width:50%;margin-top: 35px;"> Registration Page </div>
         </div>
 [% END %]

@@ -18,7 +18,10 @@
     <body>
         [% INCLUDE heading %]
         <div>
+                [% IF RecordCount %]
                 <label style="font-size: 18px; font-weight: bolder; color: #cca622;">Total Column Count: [% RecordCount %]</label><br><br><br>
+                [% END %]
+                [% IF RecordCount != 0 %]
                 <table style="width: 80%">
                     <tr style="height: 60px;">
                         <th>First Name</th>
@@ -34,7 +37,7 @@
                         <td>[% record.lastname %]</td>
                         <td>[% record.email %]</td>
                         <td>[% record.phone %]</td>
-                        [%IF record.gender.match('Male') %]
+                        [% IF record.gender.match('Male') %]
                         <td>M</td>
                         [% ELSE %]
                         <td>F</td>
@@ -42,7 +45,10 @@
                         <td>[% record.month1 %]/ [% record.day1 %]/ [% record.year1 %]</td>
                     </tr>
                [% END %]
-               </table>                    
+               </table>
+            [% ELSE %]
+                <label style="font-size: 28px; font-weight: bolder; color: #cca622;">Data not available !! Check the input</label>
+            [% END %]
         </div>
     </body>
 </html>

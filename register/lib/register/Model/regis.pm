@@ -68,4 +68,11 @@ sub getcol
     $self->csv->column_names(@cols);
 }
 
+sub searchwithmail
+{
+    my ($self, $phone) = @_;
+    my $result = $schema->resultset('KarthiRegister')->search({phone=>$phone});
+    return $result;
+}
+
 1;
