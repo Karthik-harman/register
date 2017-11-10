@@ -72,12 +72,12 @@ sub SearchSingle :Local
     my ( $self, $c ) = @_;
     my $phone = $c->request->param('search');
     my $record_ref = $self->register_model->searchwithmail($phone);
-    #my $record_ref_count = $record_ref->count;
+    my @rec = $record_ref->all();
+    print STDERR Dumper $rec[0];
+    print STDERR Dumper $record_ref->next;
     $c->stash->{RecordRef} = $record_ref;
-    #$c->stash->{RecordCount} = $record_ref_count;
     $c->stash->{template} =  'submit/result.tt';
 }
-#&SearchSingle();
 =encoding utf8
 
 =head1 AUTHOR
